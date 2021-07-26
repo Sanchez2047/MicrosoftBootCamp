@@ -50,7 +50,7 @@ namespace MicrosoftBootCamp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=BootCamp}/{action=Index}/{id?}");
             });
         }
     }

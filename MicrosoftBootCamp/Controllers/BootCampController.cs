@@ -12,5 +12,9 @@ namespace MicrosoftBootCamp.Controllers
         {
             return View();
         }
+        public IActionResult AddStudent()
+        {
+            return View();
+        }
     }
 }
