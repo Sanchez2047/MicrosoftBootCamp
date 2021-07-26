@@ -30,5 +30,11 @@ namespace MicrosoftBootCamp.Controllers
             ViewBag.students = StudentData.GetAll();
             return View();
         }
+        [HttpGet]
+        [Route("/BootCamp/Edit/{id}")]
+        public IActionResult Edit()
+        {
+            ViewBag.studentToEdit = StudentData.Get
+        }
     }
 }
