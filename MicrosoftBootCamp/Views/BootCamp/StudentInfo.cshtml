@@ -1,4 +1,15 @@
-﻿<h1>List of all Students</h1>
+﻿<div>
+    <div class="fullsearchbar">
+        <form class="searchbar" method="post" action="/BootCamp/SearchResults">
+            <input id="search" class="form-control" type="text" name="search" placeholder="Enter Student First name or last name" />
+        </form>
+        <input id="button" type="submit" name="search" />
+    </div>
+</div>
+
+
+
+<h1>List of all Students</h1>
 
 @if (ViewBag.students.Count == 0)
 {
@@ -6,31 +17,31 @@
 }
 else
 {
-<table class="table table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Career Path</th>
-            <th>Join Date</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    @foreach (var stdnt in ViewBag.students)
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Career Path</th>
+                <th>Join Date</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (Student stdnt in ViewBag.students)
         {
-<tr>
-    <td>@stdnt.Id</td>
-    <td>@stdnt.fName</td>
-    <td>@stdnt.lName</td>
-    <td>@stdnt.CareerPath</td>
-    <td>@stdnt.JoinDate</td>
-    <td><a asp-controller="BootCamp" asp-action="Edit" asp-route-id="@stdnt.Id">Edit</a></td>
-    <td><a asp-controller="BootCamp" asp-action="Delete" asp-route-id="@stdnt.Id">Delete</a></td>
+            <tr>
+                <td>@stdnt.Id</td>
+                <td>@stdnt.fName</td>
+                <td>@stdnt.lName</td>
+                <td>@stdnt.CareerPath</td>
+                <td>@stdnt.JoinDate</td>
+                <td>| <a asp-controller="BootCamp" asp-action="Edit" asp-route-id="@stdnt.Id">Edit</a></td>
+                <td>| <a asp-controller="BootCamp" asp-action="Delete" asp-route-id="@stdnt.Id">Delete</a></td>
 
-</tr>
+            </tr>
 
         }
-</table>
- }
+    </table>
+}

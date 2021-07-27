@@ -1,5 +1,14 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th><h1>We Found @ViewBag.SearchResults.Count students with the name @ViewBag.search</h1></th>
+        </tr>
+    </thead>
+    @foreach (Student stdnt in ViewBag.SearchResults)
+    {
+        <tr>
+            <td>@stdnt.fName @stdnt.lName | Career Path: @stdnt.CareerPath | Enrollement Date: @stdnt.JoinDate</td>
+        </tr>
+
+    }
+</table>

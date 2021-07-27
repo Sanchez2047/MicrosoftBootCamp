@@ -21,7 +21,7 @@ namespace MicrosoftBootCamp.DataLayer
             return _students;
         }
         //delete student
-         public static void Delete(Student oldStudent)
+        public static void Delete(Student oldStudent)
         {
             _students.Remove(oldStudent);
         }
@@ -30,7 +30,7 @@ namespace MicrosoftBootCamp.DataLayer
         public static Student GetOne(int id)
         {
             Student newStudent = new Student();
-            foreach(Student student in GetAll())
+            foreach (Student student in GetAll())
             {
                 if (student.Id == id)
                 {
@@ -40,27 +40,19 @@ namespace MicrosoftBootCamp.DataLayer
             return newStudent;
         }
 
-        //retrieve one student
+        //retrieve list of students
 
-        //public static Student GetStudent(string fName="",string lName = "")
-        //{
-        //    public static Index;
-
-        //    if(_students.Contains(fName))
-        //    {
-        //        Index = _students.IndexOf(fName);
-        //        return _students[Index];
-        //    }
-        //    else if(_students.Contains(lName))
-        //    {
-        //        Index = _students.IndexOf(lName);
-        //        return _students[Index];
-        //    }
-        //    else
-        //    {
-                
-        //    }
-        //}
-
+        public static List<Student> GetStudents(string search)
+        {
+            List<Student> studentSearch = new List<Student>();
+            foreach (Student student in GetAll())
+            {
+                if (student.fName.ToLower() == search.ToLower() || student.lName.ToLower() == search.ToLower())
+                {
+                    studentSearch.Add(student);
+                }
+            }
+            return studentSearch;
+        }
     }
 }
