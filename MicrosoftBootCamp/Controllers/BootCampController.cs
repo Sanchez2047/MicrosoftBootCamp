@@ -10,12 +10,22 @@ namespace MicrosoftBootCamp.Controllers
 {
     public class BootCampController : Controller
     {
+        private static List<string> careers = new List<string>
+        {
+            "Career Path",
+            "Web Development",
+            "Devops",
+            "Security",
+            "Machine Learning",
+            "Artificial Intelligence"
+        };
         public IActionResult Index()
         {
             return View();
         }
         public IActionResult AddStudent()
         {
+            ViewBag.careers = careers;
             return View();
         }
         [HttpPost]
@@ -32,9 +42,36 @@ namespace MicrosoftBootCamp.Controllers
         }
         [HttpGet]
         [Route("/BootCamp/Edit/{id}")]
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            ViewBag.studentToEdit = StudentData.Get
+            ViewBag.careers = careers;
+            ViewBag.studentToEdit = StudentData.GetOne(id);
+            return View();
+        }
+        [HttpPost]
+        public IActionResult SubmitEditForm(int id, string fName, string lName, string CareerPath)
+        {
+            Student student = StudentData.GetOne(id);
+            student.fName = fName;
+            student.lName = lName;
+            student.CareerPath = CareerPath;
+            return Redirect("/BootCamp/StudentInfo");
+        }
+        [HttpGet]
+        [Route("/BootCamp/Delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            ViewBag.careers = careers;
+            ViewBag.studentToDelete = StudentData.GetOne(id);
+            return View();
+
+        }
+        [HttpPost]
+        public IActionResult SubmitDeleteForm(int id)
+        {
+            StudentData.Delete(StudentData.GetOne(id));
+            return Redirect("/BootCamp/StudentInfo");
+
         }
     }
 }

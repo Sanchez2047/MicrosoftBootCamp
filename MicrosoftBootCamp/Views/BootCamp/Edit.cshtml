@@ -1,5 +1,26 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+<h1>Edit</h1>
+<form method="post" action="/BootCamp/SubmitEditForm">
+    <label>First Name</label>
+    <input class="form-control" type="text" name="fName" value="@ViewBag.studentToEdit.fName" />
+    <label>Last Name</label>
+    <input class="form-control" type="text" name="lName" value="@ViewBag.studentToEdit.lName" /><br />
+    <select name="CareerPath">
+        @foreach (string career in ViewBag.careers)
+        {
+            @if (career == ViewBag.studentToEdit.CareerPath)
+            {
+                <option value="@career" selected>@career</option>
+            }
+            else
+            {
+                <option value="@career">@career</option>
+            }
+        }
+    </select><br /><br />
+    <input type="hidden" name="id" value="@ViewBag.studentToEdit.Id" />
+    <input class="btn btn-primary" type="submit" value="Edit" /><br />
+    <a class="btn btn-success" asp-controller="BootCamp" asp-action="StudentInfo">Go Back</a>
+
+
+</form>

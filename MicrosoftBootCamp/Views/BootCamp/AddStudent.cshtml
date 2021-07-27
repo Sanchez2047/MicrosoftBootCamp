@@ -5,12 +5,11 @@
     <label>Last Name</label>
     <input class="form-control" type="text" name="lName" /><br />
     <select name="CareerPath">
-        <option value="">Career Path</option>
-        <option value="Web Development">Web Development</option>
-        <option value="Devops">Devops</option>
-        <option value="Security">Security</option>
-        <option value="Machine Learning">Machine Learning</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
+    @foreach(string career in ViewBag.careers)
+    {
+        <option value="@career">@career</option>
+
+    }
     </select><br /><br />
     <input class="btn btn-primary" type="submit" value="Register" />
 

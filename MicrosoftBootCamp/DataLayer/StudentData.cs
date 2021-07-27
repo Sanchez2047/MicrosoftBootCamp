@@ -27,7 +27,18 @@ namespace MicrosoftBootCamp.DataLayer
         }
 
         //Get by ID
-
+        public static Student GetOne(int id)
+        {
+            Student newStudent = new Student();
+            foreach(Student student in GetAll())
+            {
+                if (student.Id == id)
+                {
+                    newStudent = student;
+                }
+            }
+            return newStudent;
+        }
 
         //retrieve one student
 
