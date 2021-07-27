@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sanch\\desktop\\launchcode\\unit2\\chapter14\\FunExercise\\MicrosoftBootCamp\\MicrosoftBootCamp.csproj": {}
+    "C:\\Users\\sanch\\Desktop\\launchcode\\Unit2\\chapter14\\FunExercise\\MicrosoftBootCamp\\MicrosoftBootCamp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sanch\\desktop\\launchcode\\unit2\\chapter14\\FunExercise\\MicrosoftBootCamp\\MicrosoftBootCamp.csproj": {
+    "C:\\Users\\sanch\\Desktop\\launchcode\\Unit2\\chapter14\\FunExercise\\MicrosoftBootCamp\\MicrosoftBootCamp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sanch\\desktop\\launchcode\\unit2\\chapter14\\FunExercise\\MicrosoftBootCamp\\MicrosoftBootCamp.csproj",
+        "projectUniqueName": "C:\\Users\\sanch\\Desktop\\launchcode\\Unit2\\chapter14\\FunExercise\\MicrosoftBootCamp\\MicrosoftBootCamp.csproj",
         "projectName": "MicrosoftBootCamp",
-        "projectPath": "C:\\Users\\sanch\\desktop\\launchcode\\unit2\\chapter14\\FunExercise\\MicrosoftBootCamp\\MicrosoftBootCamp.csproj",
+        "projectPath": "C:\\Users\\sanch\\Desktop\\launchcode\\Unit2\\chapter14\\FunExercise\\MicrosoftBootCamp\\MicrosoftBootCamp.csproj",
         "packagesPath": "C:\\Users\\sanch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sanch\\desktop\\launchcode\\unit2\\chapter14\\FunExercise\\MicrosoftBootCamp\\obj\\",
+        "outputPath": "C:\\Users\\sanch\\Desktop\\launchcode\\Unit2\\chapter14\\FunExercise\\MicrosoftBootCamp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sanch\\AppData\\Roaming\\NuGet\\NuGet.Config",
