@@ -70,6 +70,7 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 .fullsearchbar {
+    width:100%;
     position: relative;
     display: flex;
 }
