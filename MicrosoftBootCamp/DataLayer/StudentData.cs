@@ -29,15 +29,15 @@ namespace MicrosoftBootCamp.DataLayer
         //Get by ID
         public static Student GetOne(int id)
         {
-            Student newStudent = new Student();
+            int index = 0;
             foreach (Student student in GetAll())
             {
                 if (student.Id == id)
                 {
-                    newStudent = student;
+                    index = _students.IndexOf(student);
                 }
             }
-            return newStudent;
+            return _students[index];
         }
 
         //retrieve list of students
