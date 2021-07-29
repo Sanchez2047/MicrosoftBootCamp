@@ -1,16 +1,27 @@
-﻿<h1>Register</h1>
-<form method="post">
-    <label>First Name</label>
-    <input class="form-control" type="text" name="fName" />
-    <label>Last Name</label>
-    <input class="form-control" type="text" name="lName" /><br />
-    <select name="CareerPath">
-    @foreach(string career in ViewBag.careers)
-    {
-        <option value="@career">@career</option>
+﻿@model StudentViewModel;
 
-    }
-    </select><br /><br />
-    <input class="btn btn-primary" type="submit" value="Register" />
+<h1>Register</h1>
+<form method="post" asp-controller="BootCampController" asp-action="AddStudent">
+
+    <div class="form-group">
+        <label asp-for="fName">First Name</label>
+        <input class="form-control" asp-for="fName"/>
+        <span asp-validation-for="fName"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="lName">Last Name</label>
+        <input class="form-control" asp-for="lName" /><br />
+        <span asp-validation-for="lName"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Career">Career</label>
+        <select class="form-control" asp-for="Career" asp-items="Model.StudentCareers"></select><br />
+        <span asp-validation-for="Career"></span>
+    </div>
+
+
+        <input class="btn btn-primary" type="submit" value="Register" />
 
 </form>

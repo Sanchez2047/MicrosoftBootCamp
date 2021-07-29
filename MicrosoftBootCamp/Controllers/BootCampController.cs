@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MicrosoftBootCamp.DataLayer;
 using MicrosoftBootCamp.Models;
+using MicrosoftBootCamp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,23 +11,15 @@ namespace MicrosoftBootCamp.Controllers
 {
     public class BootCampController : Controller
     {
-        private static List<string> careers = new List<string>
-        {
-            "Career Path",
-            "Web Development",
-            "Devops",
-            "Security",
-            "Machine Learning",
-            "Artificial Intelligence"
-        };
+
         public IActionResult Index()
         {
             return View();
         }
         public IActionResult AddStudent()
         {
-            ViewBag.careers = careers;
-            return View();
+            StudentViewModel studentViewModel = new StudentViewModel();
+            return View(studentViewModel);
         }
         [HttpPost]
         [Route("/BootCamp/AddStudent")]
