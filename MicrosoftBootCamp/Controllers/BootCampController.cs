@@ -64,28 +64,31 @@ namespace MicrosoftBootCamp.Controllers
         [HttpPost]
         public IActionResult Edit(StudentViewModel studentViewModel)
         {
-            Student student = StudentData.GetOne(studentViewModel.Id);
-            student.fName = studentViewModel.fName;
-            student.lName = studentViewModel.lName;
-            student.Career = studentViewModel.Career;
-            return Redirect("/BootCamp/StudentInfo");
+            if (ModelState.IsValid) 
+            { 
+                Student student = StudentData.GetOne(studentViewModel.Id);
+                student.fName = studentViewModel.fName;
+                student.lName = studentViewModel.lName;
+                student.Career = studentViewModel.Career;
+                return Redirect("/BootCamp/StudentInfo");
+            }
+            return View(studentViewModel);
         }
-        //[HttpGet]
-        //[Route("/BootCamp/Delete/{id}")]
-        //public IActionResult Delete(int id)
-        //{
-        //    ViewBag.careers = careers;
-        //    ViewBag.studentToDelete = StudentData.GetOne(id);
-        //    return View();
 
-        //}
-        //[HttpPost]
-        //public IActionResult SubmitDeleteForm(int id)
-        //{
-        //    StudentData.Delete(StudentData.GetOne(id));
-        //    return Redirect("/BootCamp/StudentInfo");
+        [HttpGet]
+        [Route("/BootCamp/Delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            return View(StudentData.GetOne(id));
+        }
 
-        //}
+        [HttpPost]
+        public IActionResult SubmitDelete(int id)
+        {
+            StudentData.Delete(StudentData.GetOne(id));
+            return Redirect("/BootCamp/StudentInfo");
+
+        }
         //[HttpPost]
         //public IActionResult SearchResults(string search)
         //{

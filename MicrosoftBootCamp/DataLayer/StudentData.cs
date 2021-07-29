@@ -21,15 +21,15 @@ namespace MicrosoftBootCamp.DataLayer
             return _students;
         }
         //delete student
-        public static void Delete(Student x) => _students.Remove(x);
-        //{
-        //    _students.Remove(oldStudent);
-        //}
+        //public static void Delete(Student x) => _students.Remove(x);
+        public static void Delete(Student student)
+        {
+            _students.Remove(student);
+        }
 
         //Get by ID
         public static Student GetOne(int id)
         {
-            //int index = 0;
             foreach (Student student in GetAll())
             {
                 if (student.Id == id)
@@ -52,16 +52,16 @@ namespace MicrosoftBootCamp.DataLayer
 
         public static List<Student> GetStudents(string search)
         {
-            //List<Student> studentSearch = new List<Student>();
-            //foreach (Student student in GetAll())
-            //{
-            //    if (student.fName.ToLower().Contains(search.ToLower()) || student.lName.ToLower().Contains(search.ToLower()))
-            //    {
-            //        studentSearch.Add(student);
-            //    }
-            //}
-            //return studentSearch;
-            return _students.Where(x => x.fName.Contains(search) || x.lName.Contains(search)).ToList();
+            List<Student> studentSearch = new List<Student>();
+            foreach (Student student in GetAll())
+            {
+                if (student.fName.ToLower().Contains(search.ToLower()) || student.lName.ToLower().Contains(search.ToLower()))
+                {
+                    studentSearch.Add(student);
+                }
+            }
+            return studentSearch;
+            //return _students.Where(x => x.fName.Contains(search) || x.lName.Contains(search)).ToList();
         }
     }
 }

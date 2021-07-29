@@ -9,7 +9,6 @@ namespace MicrosoftBootCamp.Models
     {
         public string fName { get; set; }
         public string lName { get; set; }
-        public string CareerPath { get; set; }
         public StudentCareer Career { get; set; }
         public DateTime JoinDate { get; }
         public int Id { get; }
@@ -20,11 +19,11 @@ namespace MicrosoftBootCamp.Models
             _nextId++;
             this.JoinDate = DateTime.Now;
         }
-        public Student(string fname, string lname, string careerpath) : this()
+        public Student(string fname, string lname, StudentCareer career) : this()
         {
             this.fName = fname;
             this.lName = lname;
-            this.CareerPath = careerpath;
+            this.Career = career;
         }
 
     }

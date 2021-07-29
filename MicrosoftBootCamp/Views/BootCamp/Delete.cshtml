@@ -1,17 +1,26 @@
-﻿
+﻿@model Student
+
 <h1>Delete</h1>
-<form method="post" action="/BootCamp/SubmitDeleteForm">
-    <label>First Name</label>
-    <input class="form-control" type="text" name="fName" value="@ViewBag.studentToDelete.fName" readonly />
+<form method="post" asp-controller="BootCamp" asp-action="SubmitDelete">
+    <div class="form-group">
+        <label asp-for="fName">First Name</label>
+        <input class="form-control" asp-for="fName" value="@Model.fName" readonly />
+    </div>
 
-    <label>Last Name</label>
-    <input class="form-control" type="text" name="lName" value="@ViewBag.studentToDelete.lName" readonly /><br />
+    <div class="form-group">
+        <label asp-for="lName">Last Name</label>
+        <input class="form-control" asp-for="lName" value="@Model.lName" readonly /><br />
+    </div>
 
-    <label>Career Path</label>
-    <input class="form-control" type="text" name="CareerPath" value="@ViewBag.studentToDelete.CareerPath" readonly /><br />
+    <div class="form-group">
+        <label>Career Path</label>
+        <input class="form-control" asp-for="Career" value="@Model.Career.ToString().Replace('_',' ')  " readonly /><br />
+    </div>
 
-    <input type="hidden" name="id" value="@ViewBag.studentToDelete.Id" />
+    <input type="hidden" name="id" value="@Model.Id" />
+
     <input class="btn btn-danger" type="submit" value="Delete" /><br /><br />
+
     <a class="btn btn-success" asp-controller="BootCamp" asp-action="StudentInfo">Go Back</a>
 
 </form>
