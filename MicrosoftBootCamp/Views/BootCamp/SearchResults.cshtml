@@ -1,14 +1,16 @@
-﻿@*<table class="table table-striped">
+﻿@model List<Student>
+
+<table class="table table-striped">
     <thead class="thead-dark">
         <tr>
-            <th><h3>We Found @ViewBag.SearchResults.Count students with the name @ViewBag.search</h3></th>
+            <th><h3>We Found @Model.Count students with the name @ViewBag.search</h3></th>
         </tr>
     </thead>
-    @foreach (Student stdnt in ViewBag.SearchResults)
+    @foreach (Student stdnt in Model)
     {
         <tr>
-            <td>@stdnt.fName @stdnt.lName | Career Path: @stdnt.CareerPath | Enrollement Date: @stdnt.JoinDate</td>
+            <td>@stdnt.fName @stdnt.lName | Career Path: @stdnt.Career | Enrollement Date: @stdnt.JoinDate</td>
         </tr>
 
     }
-</table>*@
+</table>

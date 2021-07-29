@@ -89,13 +89,17 @@ namespace MicrosoftBootCamp.Controllers
             return Redirect("/BootCamp/StudentInfo");
 
         }
-        //[HttpPost]
-        //public IActionResult SearchResults(string search)
-        //{
-        //    ViewBag.SearchResults = StudentData.GetStudents(search);
-        //    ViewBag.search = search;
-        //    return View();
+        [HttpPost]
+        public IActionResult SearchResults(string search)
+        {
+            if (search != null)
+            {
+                List<Student> students = StudentData.GetStudents(search);
+                ViewBag.search = search;
+                return View(students);
+            }
+            return Redirect("StudentInfo");
 
-        //}
+        }
     }
 }
