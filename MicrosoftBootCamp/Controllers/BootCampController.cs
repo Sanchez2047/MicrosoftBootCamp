@@ -46,23 +46,30 @@ namespace MicrosoftBootCamp.Controllers
             List<Student> students = new List<Student>(StudentData.GetAll());
             return View(students);
         }
-        //[HttpGet]
-        //[Route("/BootCamp/Edit/{id}")]
-        //public IActionResult Edit(int id)
-        //{
-        //    ViewBag.careers = careers;
-        //    ViewBag.studentToEdit = StudentData.GetOne(id);
-        //    return View();
-        //}
-        //[HttpPost]
-        //public IActionResult SubmitEditForm(int id, string fName, string lName, string CareerPath)
-        //{
-        //    Student student = StudentData.GetOne(id);
-        //    student.fName = fName;
-        //    student.lName = lName;
-        //    student.CareerPath = CareerPath;
-        //    return Redirect("/BootCamp/StudentInfo");
-        //}
+        [HttpGet]
+        [Route("/BootCamp/Edit/{id}")]
+        public IActionResult Edit(int id)
+        {
+            Student student = StudentData.GetOne(id);
+            StudentViewModel studentViewModel = new StudentViewModel
+            {
+                fName = student.fName,
+                lName = student.lName,
+                Career = student.Career,
+                Id = student.Id
+            };
+
+            return View(studentViewModel);
+        }
+        [HttpPost]
+        public IActionResult Edit(StudentViewModel studentViewModel)
+        {
+            Student student = StudentData.GetOne(studentViewModel.Id);
+            student.fName = studentViewModel.fName;
+            student.lName = studentViewModel.lName;
+            student.Career = studentViewModel.Career;
+            return Redirect("/BootCamp/StudentInfo");
+        }
         //[HttpGet]
         //[Route("/BootCamp/Delete/{id}")]
         //public IActionResult Delete(int id)

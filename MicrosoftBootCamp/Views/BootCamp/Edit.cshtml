@@ -1,24 +1,27 @@
-﻿
+﻿@model StudentViewModel
+
 <h1>Edit</h1>
-<form method="post" action="/BootCamp/SubmitEditForm">
-    <label>First Name</label>
-    <input class="form-control" type="text" name="fName" value="@ViewBag.studentToEdit.fName" />
-    <label>Last Name</label>
-    <input class="form-control" type="text" name="lName" value="@ViewBag.studentToEdit.lName" /><br />
-    <select name="CareerPath">
-        @foreach (string career in ViewBag.careers)
-        {
-            @if (career == ViewBag.studentToEdit.CareerPath)
-            {
-                <option value="@career" selected>@career</option>
-            }
-            else
-            {
-                <option value="@career">@career</option>
-            }
-        }
-    </select><br /><br />
-    <input type="hidden" name="id" value="@ViewBag.studentToEdit.Id" />
+<form method="post" asp-controller="BootCamp" asp-action="Edit">
+
+    <div class="form-group">
+        <label asp-for="fName">First Name:</label>
+        <span class="error" asp-validation-for="fName"></span>
+        <input class="form-control" asp-for="fName" value="@Model.fName" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="lName">Last Name:</label>
+        <span class="error" asp-validation-for="lName"></span>
+        <input class="form-control" asp-for="lName" value="@Model.lName"/><br />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Career">Career:</label>
+        <span class="error" asp-validation-for="Career"></span>
+        <select class="form-control" asp-for="Career" asp-items="Model.StudentCareers"></select><br />
+    </div>
+
+    <input type="hidden" name="id" value="@Model.Id" />
     <input class="btn btn-primary" type="submit" value="Edit" /><br /><br />
     <a class="btn btn-success" asp-controller="BootCamp" asp-action="StudentInfo">Go Back</a>
 

@@ -42,6 +42,11 @@ namespace MicrosoftBootCamp.DataLayer
 
             //return _students.Where(Student => Student.Id == id).FirstOrDefault();
         }
+        //Edit one
+        //public static void Edit(int id)
+        //{
+
+        //}
 
         //retrieve list of students
 

@@ -30,6 +30,15 @@ namespace MicrosoftBootCamp.ViewModels
 
         };
 
-        public string CareerPath { get; set; }
+        public int Id { get; set; }
+        public StudentViewModel()
+        {}
+        public StudentViewModel(string fname, string lname, StudentCareer career)
+        {
+            this.fName = fname;
+            this.lName = lname;
+            this.Career = career;
+        }
+
     }
 }
