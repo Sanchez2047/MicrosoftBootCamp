@@ -16,63 +16,76 @@ namespace MicrosoftBootCamp.Controllers
         {
             return View();
         }
+
         public IActionResult AddStudent()
         {
             StudentViewModel studentViewModel = new StudentViewModel();
             return View(studentViewModel);
         }
+
         [HttpPost]
-        [Route("/BootCamp/AddStudent")]
-        public IActionResult NewStudent(Student student)
+        //[Route("/BootCamp/AddStudent")]
+        public IActionResult AddStudent(StudentViewModel studentViewModel)
         {
-            StudentData.Add(student);
-            return Redirect("/BootCamp/StudentInfo");
+            if (ModelState.IsValid)
+            {
+                Student student = new Student
+                {
+                    fName = studentViewModel.fName,
+                    lName = studentViewModel.lName,
+                    Career = studentViewModel.Career
+
+                };
+                StudentData.Add(student);
+                return Redirect("/BootCamp/StudentInfo");
+            }
+            return View(studentViewModel);
         }
         public IActionResult StudentInfo()
         {
-            ViewBag.students = StudentData.GetAll();
-            return View();
+            List<Student> students = new List<Student>(StudentData.GetAll());
+            return View(students);
         }
-        [HttpGet]
-        [Route("/BootCamp/Edit/{id}")]
-        public IActionResult Edit(int id)
-        {
-            ViewBag.careers = careers;
-            ViewBag.studentToEdit = StudentData.GetOne(id);
-            return View();
-        }
-        [HttpPost]
-        public IActionResult SubmitEditForm(int id, string fName, string lName, string CareerPath)
-        {
-            Student student = StudentData.GetOne(id);
-            student.fName = fName;
-            student.lName = lName;
-            student.CareerPath = CareerPath;
-            return Redirect("/BootCamp/StudentInfo");
-        }
-        [HttpGet]
-        [Route("/BootCamp/Delete/{id}")]
-        public IActionResult Delete(int id)
-        {
-            ViewBag.careers = careers;
-            ViewBag.studentToDelete = StudentData.GetOne(id);
-            return View();
+        //[HttpGet]
+        //[Route("/BootCamp/Edit/{id}")]
+        //public IActionResult Edit(int id)
+        //{
+        //    ViewBag.careers = careers;
+        //    ViewBag.studentToEdit = StudentData.GetOne(id);
+        //    return View();
+        //}
+        //[HttpPost]
+        //public IActionResult SubmitEditForm(int id, string fName, string lName, string CareerPath)
+        //{
+        //    Student student = StudentData.GetOne(id);
+        //    student.fName = fName;
+        //    student.lName = lName;
+        //    student.CareerPath = CareerPath;
+        //    return Redirect("/BootCamp/StudentInfo");
+        //}
+        //[HttpGet]
+        //[Route("/BootCamp/Delete/{id}")]
+        //public IActionResult Delete(int id)
+        //{
+        //    ViewBag.careers = careers;
+        //    ViewBag.studentToDelete = StudentData.GetOne(id);
+        //    return View();
 
-        }
-        [HttpPost]
-        public IActionResult SubmitDeleteForm(int id)
-        {
-            StudentData.Delete(StudentData.GetOne(id));
-            return Redirect("/BootCamp/StudentInfo");
+        //}
+        //[HttpPost]
+        //public IActionResult SubmitDeleteForm(int id)
+        //{
+        //    StudentData.Delete(StudentData.GetOne(id));
+        //    return Redirect("/BootCamp/StudentInfo");
 
-        }
-        [HttpPost]
-        public IActionResult SearchResults(string search)
-        {
-            ViewBag.SearchResults = StudentData.GetStudents(search);
-            ViewBag.search = search;
-            return View();
+        //}
+        //[HttpPost]
+        //public IActionResult SearchResults(string search)
+        //{
+        //    ViewBag.SearchResults = StudentData.GetStudents(search);
+        //    ViewBag.search = search;
+        //    return View();
 
-        }
+        //}
     }
 }

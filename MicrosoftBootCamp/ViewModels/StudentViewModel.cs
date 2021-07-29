@@ -10,23 +10,24 @@ namespace MicrosoftBootCamp.ViewModels
 {
     public class StudentViewModel
     {
-        [Required]
+        [Required(ErrorMessage = ">>First Name Required<<")]
         public string fName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = ">>Last Name Required<<")]
         public string lName { get; set; }
 
-        [Range(1, int.MaxValue, ErrorMessage = "Must select a Career Path")]
+        [Range(1, int.MaxValue, ErrorMessage = ">>Must select a Career Path<<")]
         public StudentCareer Career { get; set; }
 
         public List<SelectListItem> StudentCareers { get; set; } = new List<SelectListItem>
         {
-            new SelectListItem(StudentCareer.SelectOne.ToString(), ((int)StudentCareer.SelectOne).ToString()),
-            new SelectListItem(StudentCareer.WebDevelopment.ToString(), ((int)StudentCareer.WebDevelopment).ToString()),
-            new SelectListItem(StudentCareer.DevOps.ToString(), ((int)StudentCareer.DevOps).ToString()),
-            new SelectListItem(StudentCareer.Security.ToString(), ((int)StudentCareer.Security).ToString()),
-            new SelectListItem(StudentCareer.MachineLearning.ToString(), ((int)StudentCareer.MachineLearning).ToString()),
-            new SelectListItem(StudentCareer.ArtificialIntelligence.ToString(), ((int)StudentCareer.ArtificialIntelligence).ToString())
+            new SelectListItem(StudentCareer.zzSelect_Onezz.ToString().Replace('_', ' ').Replace('z','*'), ((int)StudentCareer.zzSelect_Onezz).ToString() ),
+            new SelectListItem(StudentCareer.Web_Development.ToString().Replace('_', ' '), ((int)StudentCareer.Web_Development).ToString() ),
+            new SelectListItem(StudentCareer.DevOps.ToString().Replace('_', ' '), ((int)StudentCareer.DevOps).ToString() ),
+            new SelectListItem(StudentCareer.Security.ToString().Replace('_', ' '), ((int)StudentCareer.Security).ToString() ),
+            new SelectListItem(StudentCareer.Machine_Learning.ToString().Replace('_', ' '), ((int)StudentCareer.Machine_Learning).ToString() ),
+            new SelectListItem(StudentCareer.Artificial_Intelligence.ToString().Replace('_', ' '), ((int)StudentCareer.Artificial_Intelligence).ToString() )
+
         };
 
         public string CareerPath { get; set; }

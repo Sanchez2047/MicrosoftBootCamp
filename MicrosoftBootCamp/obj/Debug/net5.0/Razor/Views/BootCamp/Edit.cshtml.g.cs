@@ -26,8 +26,15 @@ using MicrosoftBootCamp.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\sanch\Desktop\launchcode\Unit2\chapter14\FunExercise\MicrosoftBootCamp\Views\_ViewImports.cshtml"
+using MicrosoftBootCamp.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f106a3219bc02b836614821d0b8bf53b1ed9f104", @"/Views/BootCamp/Edit.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"61cb9ab6468a4943144ecc6e31f8d6fb2ab8bad3", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"32e7f1f6eb3429e6c89f5576200c4b17ff2cdad7", @"/Views/_ViewImports.cshtml")]
     public class Views_BootCamp_Edit : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-success"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -63,7 +70,7 @@ using MicrosoftBootCamp.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n<h1>Edit</h1>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f106a3219bc02b836614821d0b8bf53b1ed9f1045227", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f106a3219bc02b836614821d0b8bf53b1ed9f1045450", async() => {
                 WriteLiteral("\r\n    <label>First Name</label>\r\n    <input class=\"form-control\" type=\"text\" name=\"fName\"");
                 BeginWriteAttribute("value", " value=\"", 160, "\"", 196, 1);
 #nullable restore
@@ -103,7 +110,7 @@ WriteAttributeValue("", 296, ViewBag.studentToEdit.lName, 296, 28, false);
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f106a3219bc02b836614821d0b8bf53b1ed9f1047141", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f106a3219bc02b836614821d0b8bf53b1ed9f1047364", async() => {
 #nullable restore
 #line 13 "C:\Users\sanch\Desktop\launchcode\Unit2\chapter14\FunExercise\MicrosoftBootCamp\Views\BootCamp\Edit.cshtml"
                                             Write(career);
@@ -147,7 +154,7 @@ WriteAttributeValue("", 296, ViewBag.studentToEdit.lName, 296, 28, false);
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f106a3219bc02b836614821d0b8bf53b1ed9f1049656", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f106a3219bc02b836614821d0b8bf53b1ed9f1049879", async() => {
 #nullable restore
 #line 17 "C:\Users\sanch\Desktop\launchcode\Unit2\chapter14\FunExercise\MicrosoftBootCamp\Views\BootCamp\Edit.cshtml"
                                    Write(career);
@@ -204,7 +211,7 @@ WriteAttributeValue("", 777, ViewBag.studentToEdit.Id, 777, 25, false);
 #nullable disable
                 EndWriteAttribute();
                 WriteLiteral(" />\r\n    <input class=\"btn btn-primary\" type=\"submit\" value=\"Edit\" /><br /><br />\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f106a3219bc02b836614821d0b8bf53b1ed9f10412581", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f106a3219bc02b836614821d0b8bf53b1ed9f10412804", async() => {
                     WriteLiteral("Go Back");
                 }
                 );

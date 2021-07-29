@@ -26,8 +26,15 @@ using MicrosoftBootCamp.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\sanch\Desktop\launchcode\Unit2\chapter14\FunExercise\MicrosoftBootCamp\Views\_ViewImports.cshtml"
+using MicrosoftBootCamp.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"41581a33705d3f77227d5c4461f7b7da1629bacd", @"/Views/BootCamp/Delete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"61cb9ab6468a4943144ecc6e31f8d6fb2ab8bad3", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"32e7f1f6eb3429e6c89f5576200c4b17ff2cdad7", @"/Views/_ViewImports.cshtml")]
     public class Views_BootCamp_Delete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-success"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -62,7 +69,7 @@ using MicrosoftBootCamp.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n<h1>Delete</h1>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "41581a33705d3f77227d5c4461f7b7da1629bacd5109", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "41581a33705d3f77227d5c4461f7b7da1629bacd5332", async() => {
                 WriteLiteral("\r\n    <label>First Name</label>\r\n    <input class=\"form-control\" type=\"text\" name=\"fName\"");
                 BeginWriteAttribute("value", " value=\"", 164, "\"", 202, 1);
 #nullable restore
@@ -104,7 +111,7 @@ WriteAttributeValue("", 567, ViewBag.studentToDelete.Id, 567, 27, false);
 #nullable disable
                 EndWriteAttribute();
                 WriteLiteral(" />\r\n    <input class=\"btn btn-danger\" type=\"submit\" value=\"Delete\" /><br /><br />\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "41581a33705d3f77227d5c4461f7b7da1629bacd7545", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "41581a33705d3f77227d5c4461f7b7da1629bacd7768", async() => {
                     WriteLiteral("Go Back");
                 }
                 );
