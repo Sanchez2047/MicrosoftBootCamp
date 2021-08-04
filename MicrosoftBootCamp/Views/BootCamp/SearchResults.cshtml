@@ -9,7 +9,7 @@
     @foreach (Student stdnt in Model)
     {
         <tr>
-            <td>@stdnt.fName @stdnt.lName | Career Path: @stdnt.Career | Enrollement Date: @stdnt.JoinDate</td>
+            <td>@stdnt.fName @stdnt.lName | Career Path: @stdnt.Career.ToString().Replace('_', ' ') | Enrollement Date: @stdnt.JoinDate</td>
         </tr>
 
     }

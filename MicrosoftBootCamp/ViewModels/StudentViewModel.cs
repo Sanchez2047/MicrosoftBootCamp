@@ -29,15 +29,17 @@ namespace MicrosoftBootCamp.ViewModels
             new SelectListItem(StudentCareer.Artificial_Intelligence.ToString().Replace('_', ' '), ((int)StudentCareer.Artificial_Intelligence).ToString() )
 
         };
+        public DateTime JoinDate { get; set; }
 
         public int Id { get; set; }
         public StudentViewModel()
         {}
-        public StudentViewModel(string fname, string lname, StudentCareer career)
+        public StudentViewModel(string fname, string lname, StudentCareer career, DateTime joinDate)
         {
             this.fName = fname;
             this.lName = lname;
             this.Career = career;
+            this.JoinDate = joinDate;
         }
 
     }

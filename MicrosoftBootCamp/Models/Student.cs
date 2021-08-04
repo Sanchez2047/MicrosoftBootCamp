@@ -10,7 +10,7 @@ namespace MicrosoftBootCamp.Models
         public string fName { get; set; }
         public string lName { get; set; }
         public StudentCareer Career { get; set; }
-        public DateTime JoinDate { get; }
+        public DateTime JoinDate { get; set; }
         public int Id { get; set; }
         public Student()
         {

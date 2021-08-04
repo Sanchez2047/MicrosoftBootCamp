@@ -15,7 +15,7 @@ namespace MicrosoftBootCamp.Controllers
 
         public BootCampController(StudentDbContext dbContext)
         {
-            this._context = dbContext;
+            _context = dbContext;
         }
 
         public IActionResult Index()
@@ -42,40 +42,46 @@ namespace MicrosoftBootCamp.Controllers
                     Career = studentViewModel.Career
 
                 };
-                StudentData.Add(student);
+                _context.Students.Add(student);
+                _context.SaveChanges();
                 return Redirect("/BootCamp/StudentInfo");
             }
             return View(studentViewModel);
         }
+
         public IActionResult StudentInfo()
         {
-            List<Student> students = new List<Student>(StudentData.GetAll());
+            List<Student> students = _context.Students.ToList();
             return View(students);
         }
+
         [HttpGet]
         [Route("/BootCamp/Edit/{id}")]
         public IActionResult Edit(int id)
         {
-            Student student = StudentData.GetOne(id);
+            Student student = _context.Students.Find(id);
             StudentViewModel studentViewModel = new StudentViewModel
             {
                 fName = student.fName,
                 lName = student.lName,
                 Career = student.Career,
+                JoinDate = student.JoinDate,
                 Id = student.Id
             };
-
             return View(studentViewModel);
         }
+
         [HttpPost]
         public IActionResult Edit(StudentViewModel studentViewModel)
         {
-            if (ModelState.IsValid) 
-            { 
-                Student student = StudentData.GetOne(studentViewModel.Id);
+            if (ModelState.IsValid)
+            {
+                Student student = _context.Students.Find(studentViewModel.Id);
                 student.fName = studentViewModel.fName;
                 student.lName = studentViewModel.lName;
                 student.Career = studentViewModel.Career;
+                student.JoinDate = studentViewModel.JoinDate;
+                _context.SaveChanges();
                 return Redirect("/BootCamp/StudentInfo");
             }
             return View(studentViewModel);
@@ -85,27 +91,34 @@ namespace MicrosoftBootCamp.Controllers
         [Route("/BootCamp/Delete/{id}")]
         public IActionResult Delete(int id)
         {
-            return View(StudentData.GetOne(id));
+            return View(_context.Students.Find(id));
         }
 
         [HttpPost]
         public IActionResult SubmitDelete(int id)
         {
-            StudentData.Delete(StudentData.GetOne(id));
+            _context.Students.Remove(_context.Students.Find(id));
+            _context.SaveChanges();
             return Redirect("/BootCamp/StudentInfo");
-
         }
+
         [HttpPost]
         public IActionResult SearchResults(string search)
         {
             if (search != null)
             {
-                List<Student> students = StudentData.GetStudents(search);
+                List<Student> students = new List<Student>();
+                foreach (Student student in _context.Students.ToList())
+                {
+                    if (student.fName.ToLower().Contains(search.ToLower()) || student.lName.ToLower().Contains(search.ToLower()))
+                    {
+                        students.Add(student);
+                    }
+                }
                 ViewBag.search = search;
                 return View(students);
             }
             return Redirect("StudentInfo");
-
         }
     }
 }
