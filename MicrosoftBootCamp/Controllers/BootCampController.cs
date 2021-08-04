@@ -11,6 +11,12 @@ namespace MicrosoftBootCamp.Controllers
 {
     public class BootCampController : Controller
     {
+        private StudentDbContext _context;
+
+        public BootCampController(StudentDbContext dbContext)
+        {
+            this._context = dbContext;
+        }
 
         public IActionResult Index()
         {
