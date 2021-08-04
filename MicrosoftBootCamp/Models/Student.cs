@@ -11,7 +11,7 @@ namespace MicrosoftBootCamp.Models
         public string lName { get; set; }
         public StudentCareer Career { get; set; }
         public DateTime JoinDate { get; }
-        public int Id { get; }
+        public int Id { get; set; }
         public Student()
         {
             this.JoinDate = DateTime.Now;
